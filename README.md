@@ -14,7 +14,7 @@ Follow these steps to install and configure the project with this repository:
    ```
 
 2. **Install Virtual Environment**
-   Create a folder and initialize your ".venv":
+  1. Create a folder and initialize your ".venv":
    ```bash
     python3 -m venv .venv
    ```
