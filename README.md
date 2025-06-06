@@ -15,9 +15,9 @@ Follow these steps to install and configure the project with this repository:
 
 2. **Install Virtual Environment**
   1. Create a folder and initialize your ".venv":
-   ```bash
-    python3 -m venv .venv
-   ```
+      ```bash
+      python3 -m venv .venv
+      ```
 
 3. **Install Dependencies of Project**
    1. Open your IDE
@@ -39,7 +39,7 @@ Follow these steps to install and configure the project with this repository:
      https://docs.docker.com/engine/install/
      ```
 
-4. **Run Docker and Up Postgres**
+5. **Run Docker and Up Postgres**
   1. Open your terminal
 
   2. Run command
@@ -49,7 +49,7 @@ Follow these steps to install and configure the project with this repository:
 
   3. Await download and install Postgres
 
-5. **Run the Project**
+6. **Run the Project**
   1. Open your terminal
 
   2. Run command
