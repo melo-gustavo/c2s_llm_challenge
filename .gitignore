@@ -1,0 +1,26 @@
+# Ignorar arquivos de ambiente
+.env
+.venv/
+.venv/**
+
+# Cache do Ruff
+.ruff_cache/
+.ruff_cache/**
+
+# Cache do pytest
+.pytest_cache/
+.pytest_cache/**
+
+# Diretórios __pycache__ em qualquer lugar do projeto
+__pycache__/
+**/__pycache__/
+
+# Outros comuns para projetos Python
+*.pyc
+*.pyo
+*.pyd
+*.py[co]
+*.log
+
+# VSCode settings (opcional)
+.vscode/

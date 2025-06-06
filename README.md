@@ -1,0 +1,1 @@
+# Project developed as part of the technical test of the company Contact2Sale aimed at using LLM to understand the natural language of customers when asking for information about cars that are in our database generated with Faker.

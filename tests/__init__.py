@@ -1,0 +1,2 @@
+TWO_PORTS = 2
+FOUR_PORTS = 4
