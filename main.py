@@ -41,7 +41,7 @@ def run():
 
             with session_scope() as session:
                 all_cars = GroqCloud.search_query_in_db(session, response)
-                if all_cars is not None:
+                if all_cars and all_cars is not None:
                     for car in all_cars:
                         print(f"""
                             Car Identification": {car.car_identification}
@@ -54,6 +54,8 @@ def run():
                             Year: {car.year}
                             Price: {car.price}
                             """)
+                else:
+                    print("Carro não encontrado!")
             first_search = False
 
     print("Até logo!")
