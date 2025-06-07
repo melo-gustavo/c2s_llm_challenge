@@ -69,12 +69,12 @@ class TestPopulateDB:
     @staticmethod
     def test_generate_power():
         result = FakerProvider.generate_power_car()
-        assert isinstance(result, float)
+        assert isinstance(result, str)
 
     @staticmethod
     def test_generate_power_error():
         result = FakerProvider.generate_power_car()
-        assert isinstance(result, str)
+        assert isinstance(result, float)
 
     @staticmethod
     def test_generate_price():

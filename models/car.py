@@ -11,10 +11,11 @@ class Car(Base):
     __tablename__ = "cars"
 
     id: Mapped[int] = mapped_column(
-        Integer, primary_key=True, autoincrement=True
+        Integer, primary_key=True, autoincrement=True, index=True
     )
     car_identification: Mapped[UUID] = mapped_column(
-        PG_UUID(as_uuid=True), default=uuid4, nullable=False, unique=True
+        PG_UUID(as_uuid=True), default=uuid4, nullable=False,
+        index=True, unique=True
     )
     manufacturer: Mapped[str] = mapped_column(String, nullable=False)
     model: Mapped[str] = mapped_column(String, nullable=False)

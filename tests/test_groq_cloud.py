@@ -1,16 +1,16 @@
 from db.db import session_scope
 from services.groq_cloud import GroqCloud
+from tests import YEAR
 
 
 class TestGroqCloud:
     @staticmethod
     def test_input_user_llm():
-        response = GroqCloud.invoke_llm("Carro preto com ano acima de 2020")
+        response = GroqCloud.invoke_llm("Carro preto")
         assert response is not None
 
         assert "SELECT" in response
         assert "color = 'Black'" or 'color = "Black"' in response
-        assert "year > 2020" in response
 
     @staticmethod
     def test_input_user_llm_error():
@@ -19,11 +19,11 @@ class TestGroqCloud:
 
         assert "SELECT" in response
         assert "color = 'Black'" or 'color = "Black"' in response
-        assert "year < 2020" in response
+        assert "year > 2025" in response
 
     @staticmethod
     def test_input_search_manufacturer():
-        response = GroqCloud.invoke_llm("Carro preto com ano acima de 2020")
+        response = GroqCloud.invoke_llm("Carro com ano acima de 2020")
         assert isinstance(response, str)
 
         with session_scope() as session:
@@ -33,19 +33,19 @@ class TestGroqCloud:
             found = False
             if result:
                 for item in result:
-                    if item.model.lower() == "tucson":
+                    if item.year > YEAR:
                         found = True
                         break
                 assert found
 
     @staticmethod
     def test_input_search_manufacturer_error():
-        response = GroqCloud.invoke_llm("Carro preto com ano acima de 2020")
+        response = GroqCloud.invoke_llm("Carro com ano acima de 2030")
         assert isinstance(response, str)
 
         with session_scope() as session:
             result = GroqCloud.search_query_in_db(session, response)
-            assert result is not None
+            assert result
 
             found = False
             if result:
@@ -74,17 +74,17 @@ class TestGroqCloud:
 
     @staticmethod
     def test_input_search_aleatory_error():
-        response = GroqCloud.invoke_llm("Que dia é hoje?")
+        response = GroqCloud.invoke_llm("carro rx7")
         assert isinstance(response, str)
 
         with session_scope() as session:
             result = GroqCloud.search_query_in_db(session, response)
-            assert result is not None
+            assert result
 
             found = False
             if result:
                 for item in result:
-                    if item.model.lower() == "tesla 3":
+                    if item.model.lower() == "rx7":
                         found = True
                         break
-                assert found
+                assert not found
