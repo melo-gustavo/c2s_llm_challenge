@@ -56,3 +56,4 @@ Follow these steps to install and configure the project with this repository:
      ```bash
      python3 main.py
      ```
+    3. After running main it creates the database, runs alembic and populates the database
